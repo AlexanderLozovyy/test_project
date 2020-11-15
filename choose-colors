@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+echo -e "Chose your colors"
+read c_color d_color
+c_color="background-color: ${c_color};"
+c_original=$(awk ' BEGIN {FS="\n"; RS=""} /button.a/ && !/hover/ && !/focus/ {print $2}' vote/static/stylesheets/style.css)
+d_color="background-color: ${d_color};"
+d_original=$(awk ' BEGIN {FS="\n"; RS=""} /button.b/ && !/hover/ && !/focus/ {print $2}' vote/static/stylesheets/style.css)
+sed -i "s/$c_original/$c_color/g" vote/static/stylesheets/style.css
+sed -i "s/$d_original/$d_color/g" vote/static/stylesheets/style.css
+echo "Colors changed"

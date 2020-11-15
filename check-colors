@@ -1,0 +1,3 @@
+#!/bin/bash
+awk ' BEGIN {FS="\n"; RS=""} /button.a/ && !/hover/ && !/focus/ {print $2}' vote/static/stylesheets/style.css
+awk ' BEGIN {FS="\n"; RS=""} /button.b/ && !/hover/ && !/focus/ {print $2}' vote/static/stylesheets/style.css
